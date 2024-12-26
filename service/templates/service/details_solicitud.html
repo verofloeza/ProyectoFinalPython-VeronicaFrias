@@ -1,0 +1,28 @@
+{% extends 'service/base.html' %} 
+
+{% block blockTitle %}Crear Solicitud de Servicio{% endblock blockTitle %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-salmon text-center">{{ solicitud.nombre }}</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong class="text-salmon">Fecha de ingreso:</strong> {{ solicitud.fecha_solicitud }}</p>
+            <p><strong class="text-salmon">Usuario:</strong> {{ solicitud.usuario.username }}</p>
+            <p><strong class="text-salmon">Descripcion:</strong> {{ solicitud.descripcion }}</p>
+        </div>
+        <div class="col-md-6">
+            {% if solicitud.foto %}
+                <img src="{{ solicitud.foto.url }}" alt="Foto de {{ solicitud.nombre }}" class="img" style="max-width: 300px;">
+            {% else %}
+                <span>Sin imagen</span>
+            {% endif %}
+        </div>
+    </div>
+<div class="row mt-3 mb-5">
+    <div class="col-md-12 text-center">
+        <a href="{% url 'app_service:index_solicitud' %}" class="btn btn-salmon">Volver Atrás</a>
+    </div>
+</div>
+</div>
+{% endblock %}

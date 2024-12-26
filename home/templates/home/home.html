@@ -1,0 +1,17 @@
+{% extends "home/base.html" %}
+
+{% block page_title %}Proyecto Final Python - Bienvenido{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-salmon text-center">Bienvenidos a mi Proyecto Final</h1>
+    <div class="row">
+        <div class="col-md-12 m-4">
+            <p>¡Hola! Mi nombre es <strong class="text-salmon">Verónica Frías</strong> y este es mi Proyecto Final de Python. A lo largo de este proyecto, he aplicado los conocimientos adquiridos en el curso de Python de CoderHouse, para desarrollar un sitio web dinámico y moderno. En este proyecto, he integrado diversas técnicas y paradigmas de programación, como programación estructurada, orientada a objetos y funcional, para ofrecer un proyecto robusto y escalable. He empleado herramientas y buenas prácticas para destacar el potencial de Django y Python en el desarrollo profesional. ¡Espero que disfruten explorando mi proyecto tanto como yo disfruté desarrollándolo!</p>
+        </div>
+        <div class="col-md-12 m-4 text-center mb-5">
+            <a href="{% url 'app_home:about' %}" class="btn btn-salmon">Ver más sobre mí!</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

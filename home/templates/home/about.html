@@ -1,0 +1,32 @@
+{% extends "home/base.html" %}
+
+{% load static %}
+
+{% block page_title %}Proyecto Final Python - Sobre mí{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-salmon text-center">Sobre mí</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <p><strong class="text-salmon">Nombre:</strong> Verónica</p>
+            <p><strong class="text-salmon">Apellido:</strong> Frías</p>
+            <p><strong class="text-salmon">Fecha de nacimiento:</strong> 15 de diciembre del 1986</p>
+            <p><strong class="text-salmon">Nacionalidad:</strong> Argentina</p>
+            <p><strong class="text-salmon">Residencia:</strong> Buenos Aires, Argentina</p>
+            <p><strong class="text-salmon">Email:</strong> <a href="mailto:fusioncuentascreativa@gmail.com">fusioncuentascreativa@gmail.com</a></p>
+            <p><strong class="text-salmon">LinkedIn:</strong> <a href="https://www.linkedin.com/in/verofrias/" target="_blanck">verofrias</a></p>
+            <p><strong class="text-salmon">GitHub:</strong> <a href="https://github.com/verofloeza" target="_blanck">verofloeza</a></p>
+
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'home/images/mi_foto.jpg' %}" alt="Verónica Frías" style="max-width: 250px; height: auto; border-radius: 5px;">
+        </div>
+        <div class="col-md-12 m-4">
+            <p><strong class="text-salmon">Sobre mí:</strong> Soy una apasionada de la tecnología y la programación. Me encanta aprender y desafiar mis límites. Me considero una persona proactiva, responsable y comprometida con mi trabajo. Me gusta trabajar en equipo y compartir conocimientos. Estoy en constante búsqueda de nuevas oportunidades y desafíos que me permitan crecer profesionalmente.</p>
+            <p><strong class="text-salmon">Conocimientos:</strong> PHP, POO, AJAX, Javascript, CSS, HTML, Wordpress, React Native, React JS, Angular JS, Next Js, y próximamente Python y Django</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
