@@ -9,7 +9,7 @@ class CustomUserCreationForm(UserCreationForm):
         fields = ("username", "email", "password1", "password2")
 
 class UserCreationFormWithEmail(UserCreationForm):
-    email = forms.EmailField(required=True, help_text='Required. Inform a valid email address.')
+    email = forms.EmailField(required=True, help_text='Requerido. Coloque su email.')
 
     class Meta:
         model = User
