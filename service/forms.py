@@ -18,7 +18,8 @@ class SolicitudForm(forms.ModelForm):
         required=True,
         widget=forms.DateInput(attrs={
             'type': 'date',
-            'class': 'form-control'
+            'class': 'form-control',
+            'format': '%Y-%m-%d'
         }),
         help_text='Requerido. Seleccione una fecha.'
     )

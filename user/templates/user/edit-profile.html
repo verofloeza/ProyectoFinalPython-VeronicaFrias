@@ -27,27 +27,26 @@
                     
                     <h3>Perfil Adicional</h3>
                     {% for field in profile_form %}
-                        <div class="mb-3">
-                            <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-                            {% if field.name == "avatar" %}
-                                <!-- Mostrar miniatura si hay un avatar existente -->
-                                {% if field.value %}
-                                    <div class="mb-2">
-                                        <img src="{{ field.value.url }}" alt="Avatar" style="max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
-                                    </div>
-                                {% endif %}
-                                <!-- Input para seleccionar un nuevo archivo -->
-                                <input type="file" name="{{ field.name }}" id="{{ field.id_for_label }}" class="form-control">
-                            {% else %}
-                                <!-- Renderizar los demás campos normalmente -->
-                                {{ field }}
-                            {% endif %}
-                            {% if field.errors %}
-                                <div class="alert alert-danger mt-1">
-                                    {{ field.errors }}
+                    <div class="mb-3">
+                        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+                        {% if field.name == "avatar" %}
+                            {% if field.value %}
+                                <div class="mb-2">
+                                    <img src="{{ field.value.url }}" alt="Avatar" style="max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
                                 </div>
                             {% endif %}
-                        </div>
+                            <input type="file" name="{{ field.name }}" id="{{ field.id_for_label }}" class="form-control">
+                        {% elif field.name == 'birth_date' %}
+                        <input type="date" name="{{ field.name }}" id="{{ field.id_for_label }}" value="{{ field.value|date:'Y-m-d' }}" class="form-control">
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                        {% if field.errors %}
+                            <div class="alert alert-danger mt-1">
+                                {{ field.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
                     {% endfor %}
                     
                     <div class="text-center">

@@ -92,7 +92,6 @@ def update_solicitud(request, id):
                 solicitud.foto = request.FILES['foto']
             
             solicitud.save()
-            print(f"Solicitud guardada. Foto: {solicitud.foto}")
             return redirect('app_service:index_solicitud')
         else:
             print("Form errors:", form.errors)

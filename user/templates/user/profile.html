@@ -11,9 +11,13 @@
             <p><strong class="text-salmon">Nombre:</strong> {{ user.first_name }}</p>
             <p><strong class="text-salmon">Apellido:</strong> {{ user.last_name }}</p>
             <p><strong class="text-salmon">Fecha de nacimiento:</strong> {{ user.profile.birth_date }}</p>
+            <p><strong class="text-salmon">Link:</strong> <a href={{ user.profile.link }} target="_blanck">{{ user.profile.link }}</a></p>
         </div>
         <div class="col-md-6">
             <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="max-width: 250px; height: auto; border-radius: 5px;">
+        </div>
+        <div class="col-12">
+            <p><strong class="text-salmon">Biografía:</strong> {{ user.profile.bio}}</p>
         </div>
     </div>
     <a href="{% url 'app_user:logout' %}" class="btn btn-danger">Cerrar sesión</a>

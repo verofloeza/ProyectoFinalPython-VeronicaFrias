@@ -35,6 +35,12 @@ class ProfileForm(forms.ModelForm):
         fields = ['avatar', 'bio', 'birth_date', 'link']
         widgets = {
             'avatar': forms.ClearableFileInput(attrs={'class': 'form-control'}),
+            'birth_date': forms.DateField(
+                widget=forms.DateInput(attrs={
+                    'type': 'date',
+                    'class': 'form-control'
+                }),
+            ),
         }
 
 class ProfileChangeForm(ProfileForm):

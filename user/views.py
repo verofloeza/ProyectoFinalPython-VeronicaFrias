@@ -50,10 +50,6 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
         profile_form = ProfileChangeForm(request.POST, request.FILES, instance=profile)  
 
         if user_form.is_valid() and profile_form.is_valid():
-
-            print("User form is valid:", user_form.cleaned_data)
-            print("Profile form is valid:", profile_form.cleaned_data)
-
             user_form.save()
             profile_form.save()
             return redirect(self.success_url)

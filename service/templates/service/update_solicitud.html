@@ -16,30 +16,29 @@
                     <form method="post" class="needs-validation" novalidate enctype="multipart/form-data">
                         {% csrf_token %}
                         {% for field in form %}
-                            <div class="mb-3">
-                                <label for="{{ field.id_for_label }}" class="form-label text-salmon d-block">
-                                    {{ field.label }}
-                                </label>
-                                {% if field.name == "foto" %}
-                                    <!-- Mostrar miniatura si hay una foto existente -->
-                                    {% if form.instance.foto %}
-                                        <div class="mb-2">
-                                            <img src="{{ form.instance.foto.url }}" alt="Foto" style="max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
-                                        </div>
-                                    {% endif %}
-                                    <!-- Input para seleccionar un nuevo archivo -->
-                                    <input type="file" name="{{ field.name }}" id="{{ field.id_for_label }}" class="form-control">
-                                {% else %}
-                                    <!-- Renderizar los demás campos normalmente -->
-                                    {{ field }}
-                                {% endif %}
-                                {% if field.errors %}
-                                    <div class="invalid-feedback d-block">
-                                        {{ field.errors|striptags }}
+                        <div class="mb-3">
+                            <label for="{{ field.id_for_label }}" class="form-label text-salmon d-block">
+                                {{ field.label }}
+                            </label>
+                            {% if field.name == "foto" %}
+                                {% if form.instance.foto %}
+                                    <div class="mb-2">
+                                        <img src="{{ form.instance.foto.url }}" alt="Foto" style="max-width: 150px; height: auto; border: 1px solid #ddd; border-radius: 5px;">
                                     </div>
                                 {% endif %}
-                            </div>
-                        {% endfor %}
+                                <input type="file" name="{{ field.name }}" id="{{ field.id_for_label }}" class="form-control">
+                            {% elif field.name == 'fecha_solicitud' %}
+                                <input type="date" name="{{ field.name }}" id="{{ field.id_for_label }}" value="{{ field.value|date:'Y-m-d' }}" class="form-control">
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+                            {% if field.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ field.errors|striptags }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
                         <div class="d-grid">
                             <button type="submit" class="btn btn-salmon">
                                 <i class="bi bi-save me-2"></i>Guardar Solicitud
