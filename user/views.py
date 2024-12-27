@@ -18,14 +18,14 @@ class RegisterView(View):
 
     def get(self, request):
         form = UserCreationFormWithEmail()
-        return render(request, 'app_user:register', {'form': form})
+        return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         form = UserCreationFormWithEmail(request.POST)
         if form.is_valid():
             form.save()
             return redirect('app_user:login')
-        return render(request, 'app_user:register', {'form': form})
+        return render(request, self.template_name, {'form': form})
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User

@@ -1,4 +1,5 @@
 {% extends "user/base.html" %}
+{% load static %}
 
 {% block page_title %}Proyecto Final Python - Perfil{% endblock %}
 
@@ -7,6 +8,7 @@
     <h1 class="text-salmon text-center">Bienvenido/a, {{ user.username }}</h1>
     <div class="row">
         <div class="col-md-6">
+            <p><strong class="text-salmon">Usuario:</strong> {{ user.username }}</p>
             <p><strong class="text-salmon">Email:</strong> {{ user.email }}</p>
             <p><strong class="text-salmon">Nombre:</strong> {{ user.first_name }}</p>
             <p><strong class="text-salmon">Apellido:</strong> {{ user.last_name }}</p>
@@ -14,7 +16,11 @@
             <p><strong class="text-salmon">Link:</strong> <a href={{ user.profile.link }} target="_blanck">{{ user.profile.link }}</a></p>
         </div>
         <div class="col-md-6">
-            <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="max-width: 250px; height: auto; border-radius: 5px;">
+            {% if user.profile.avatar %}
+                <img src="{{ user.profile.avatar.url }}" alt="Avatar" style="max-width: 250px; height: auto; border-radius: 5px;">
+            {% else %}
+                <img src="{% static 'user/images/avatar.png' %}" alt="Avatar" style="max-width: 250px; height: auto; border-radius: 5px;">
+            {% endif %}
         </div>
         <div class="col-12">
             <p><strong class="text-salmon">Biografía:</strong> {{ user.profile.bio}}</p>
